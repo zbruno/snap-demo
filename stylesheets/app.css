@@ -1,0 +1,40 @@
+.snap-container {
+    width: 1000px;
+    height: 630px;
+    display: block;
+    margin: 100px auto;
+    background-color: #f3f3f3;
+}
+#svg {
+    margin: 100px;
+}
+
+.circles:hover {
+    cursor: pointer;
+}
+
+.circles {
+    transform-origin: 0 0;
+    transition: 500ms;
+}
+.circles.animated {
+    transform-origin: 0 0;
+    transition: 500ms;   
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 15px;
+    position: absolute;
+    color: #000;
+    background: #fff;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 500ms;
+}
+.back-btn:hover {
+    color: #fff;
+    background: #000;
+    transition: 500ms;
+}
