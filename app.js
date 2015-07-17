@@ -47,32 +47,24 @@ var startAnim = function(id, snapCir) {
     numAnimations = 0;
     clickedItem = snapCir;
     clickedItemId = id;
-    scatter(id, snapCir);
+    for (var i = 0; i < arr.length; i++) {
+        if(i !== id) {
+            scurry(arr[i]);
+        }
+    }
 }
 
 var reset = function(id, snapCir) {
     clickedItem.animate({
         transform: 's1,1'
     }, 500, null, function() {
-        unscatter(id, snapCir);
+        for (var i = 0; i < arr.length; i++) {
+            if(i !== id) {
+                unscurry(arr[i]);
+            }
+        }
         clickedItem = null;
     });
-}
-
-var scatter = function(circleId, snapCir) {
-    for (var i = 0; i < arr.length; i++) {
-        if(i !== circleId) {
-            scurry(arr[i]);
-        }
-    }
-}
-
-var unscatter = function(circleId, snapCir) {
-    for (var i = 0; i < arr.length; i++) {
-        if(i !== circleId) {
-            unscurry(arr[i]);
-        }
-    }
 }
 
 var scurry = function(snapCir) {
@@ -125,44 +117,28 @@ var createCircle = function(x, y, circum) {
     counter++;
     arr.push(t);
 }
- 
-for (var i = 0; i < 6; i++) {
-    
-    if (i == 0) {
-        for (var z = 1; z < 6; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 25, 25);    
-        }
+
+
+var createLogo = function(startX, startY, radius) {
+    var radius = radius;
+    var diam = radius*2;
+    var startX = startX;
+    var startY = startY;
+
+    var lgCirPosX = [startX, startX, startX + diam + (diam*.22), startX + diam + (diam*.22), startX + diam + (diam*2.22), startX + diam + (diam*2.22), startX + diam + (diam*4.55), startX + diam + (diam*4.55), startX + diam + (diam*6.66), startX + diam + (diam*6.66)];
+    var lgCirPosY = [startY + diam + (diam*2.22), startY + diam + (diam*4.55), startY + diam + (diam*.22), startY + diam + (diam*6.66), startY, startY + diam + (diam*7.77), startY, startY + diam + (diam*7.77), startY + diam + (diam*.22), startY + diam + (diam*6.66)];
+
+    var smCirPosX = [startX + diam + (diam*.77), startX + diam + (diam*1.55), startX + diam + (diam*1.55), startX + diam + (diam*3.44), startX + diam + (diam*3.44), startX + diam + (diam*5.33), startX + diam + (diam*5.33)];
+    var smCirPosY = [startY + diam + (diam*3.44), startY + diam + (diam*1.55), startY + diam + (diam*5.33), startY + diam + (diam*.77), startY + diam + (diam*6.11), startY + diam + (diam*1.55), startY + diam + (diam*5.33)];
+
+    for (var i = 0; i < 10; i++) {
+        createCircle(lgCirPosX[i], lgCirPosY[i], radius);
     }
-    if (i == 1) {
-        for (var z = 1; z < 6; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 100, 25);    
-        }
-    }
-    if (i == 2) {
-        for (var z = 1; z < 3; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 175, 25);    
-        }
-    }
-    if (i == 3) {
-        for (var z = 1; z < 3; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 250, 25);    
-        }
-    }
-    if (i == 4) {
-        for (var z = 1; z < 6; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 325, 25);    
-        }
-    }
-    if (i == 5) {
-        for (var z = 1; z < 6; z++) {
-            var dist = 65 * z;        
-            createCircle(dist, 400, 25);    
-        }
+    for (var i = 0; i < 7; i++) {
+        createCircle(smCirPosX[i], smCirPosY[i], radius);
     }
 
 }
+
+createLogo(100, 0, 25);
+
