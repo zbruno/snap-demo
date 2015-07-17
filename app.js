@@ -1,7 +1,7 @@
 var s = Snap('#svg');
 
 var svgCenterY = $('#svg').height()/2;
-var svgCenterX = $('#svg').width()/2;
+var svgCenterX = $('#svg').width()/4.5;
 
 var arr = [];
 
@@ -10,10 +10,11 @@ var clickedItemId;
 
 var numAnimations = 0;
 
-$('.back-btn').hide();
+$('.back-btn, .description-container').hide();
 
 $('.back-btn').click(function() {
     $(this).hide();
+    $('.description-container').hide();
     reset(clickedItemId, clickedItem);
 });
 
@@ -21,12 +22,12 @@ var _onHover = function(el) {
     el.hover(
         function() {
             this.attr({
-                fill: "red"
+                fill: "#23b6d5"
             });
         },
         function() {
             this.attr({
-                fill: "black"
+                fill: "#777"
             });
         }
     )
@@ -55,8 +56,10 @@ var startAnim = function(id, snapCir) {
 }
 
 var reset = function(id, snapCir) {
+    $('.back-btn, .description-container').hide();
     clickedItem.animate({
-        transform: 's1,1'
+        transform: 's1,1',
+        fill: "#777"
     }, 500, null, function() {
         for (var i = 0; i < arr.length; i++) {
             if(i !== id) {
@@ -85,8 +88,6 @@ var unscurry = function(snapCir) {
             transform: 'matrix(1,0,0,1,0,0)',
         }, 750, mina.backout);
     }, delay);
-
-    $('.back-btn').hide();
 }
 
 var expandThis = function() {
@@ -98,26 +99,35 @@ var expandThis = function() {
         var centerY = bBox.cy;
         var transY = svgCenterY - centerY;
         var transX = svgCenterX - centerX;
-        var _transform = 's5,5T' + transX + ',' + transY;
-
-        $('.back-btn').show();
+        var _transform = 's7,7T' + transX + ',' + transY;
 
         clickedItem.animate({
-            transform: _transform
-        }, 500);
+            transform: _transform,
+            fill: "#23b6d5"
+        }, 500, null, function() {
+            $('.back-btn').show();
+            var thisOne = clickedItem.node.id;
+
+            $.getJSON( "data.json", function( data ) {
+                var fillTitle = data.descriptions[thisOne].title;
+                var fillText = data.descriptions[thisOne].description;
+                $('.description-container').find('h3').html(fillTitle);
+                $('.description-container').find('p').html(fillText);
+                $('.description-container').show();
+            });
+        });
     }
 }
 
 var counter = 0;
 var createCircle = function(x, y, circum) {
     t = s.circle(x, y, circum);
-    t.attr({id: counter, class: 'circles'});
+    t.attr({id: counter, class: 'circles', fill: '#777'});
     clickHandler(counter, t);
     _onHover(t);
     counter++;
     arr.push(t);
 }
-
 
 var createLogo = function(startX, startY, radius) {
     var radius = radius;
@@ -141,4 +151,3 @@ var createLogo = function(startX, startY, radius) {
 }
 
 createLogo(100, 0, 25);
-

@@ -4,7 +4,39 @@
     display: block;
     margin: 100px auto;
     background-color: #f3f3f3;
+    position: relative;
 }
+.description-container {
+    position: absolute;
+    right: 75px;
+    top: 150px;
+    bottom: 150px;
+    left: 550px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    align-content: space-around;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.3);
+}
+.description-container h3 {
+    margin: 0;
+    display: block;
+    padding: 15px 0;
+    background: #23b6d5;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.description-container p {
+    padding: 10px 25px;
+    font-size: 1.2rem;
+}
+
 #svg {
     padding: 100px;
 }
