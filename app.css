@@ -37,10 +37,6 @@
     font-size: 1.2rem;
 }
 
-#svg {
-    padding: 100px;
-}
-
 .circles:hover {
     cursor: pointer;
 }

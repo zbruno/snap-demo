@@ -1,7 +1,7 @@
 var s = Snap('#svg');
 
 var svgCenterY = $('#svg').height()/2;
-var svgCenterX = $('#svg').width()/4.5;
+var svgCenterX = $('#svg').width()/3;
 
 var arr = [];
 
@@ -150,4 +150,4 @@ var createLogo = function(startX, startY, radius) {
 
 }
 
-createLogo(100, 0, 25);
+createLogo(200, 100, 25);
