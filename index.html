@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="letter-c/app.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="app.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
-    
-</head>
-<body>
-    <h1 class="section-title">Curology Logo</h1>
-    <div class="snap-container letter-c">
-        <a href="#!" class="back-btn">Go back</a>
-        <svg id="svg" height="630" width="1000"></svg>
-        <div class="description-container">
-            <h3 class="title"></h3>
-            <div class="description-content">
-                <p></p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+        
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="#!">Logo</a>
+                </li>
+                <li>
+                    <a href="ingredients/ingredients.html">Ingredients</a>
+                </li>
+                <li>
+                    <a href="five-groups/five-groups.html">Five Groups</a>
+                </li>
+            </ul>
+        </nav>
+        <h1 class="section-title">Curology Logo</h1>
+        <div class="snap-container letter-c">
+            <a href="#!" class="back-btn">Go back</a>
+            <svg id="svg" height="630" width="1000"></svg>
+            <div class="description-container">
+                <h3 class="title"></h3>
+                <div class="description-content">
+                    <p></p>
+                </div>
             </div>
         </div>
-    </div>
-
-    <h1 class="section-title">Ingredients Section</h1>
-    <div class="snap-container blobs">
-        <a href="#!" class="back-btn">Go back</a>
-        <svg id="svg-blobs" height="630" width="1000"></svg>
-    </div>
-    <script src="letter-c/app.js"></script>
-    <script src="five-blobs/blobs.js"></script>
-</body>
+        <script>
+            var s = Snap('#svg');
+        </script>
+        <script src="app.js"></script>
+        <script src="logo/logo.js"></script>
+    </body>
 </html>

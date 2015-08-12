@@ -41,7 +41,7 @@ h1.section-title {
     font-size: 1.2rem;
 }
 
-.circles:hover {
+.circles:hover, .squares:hover {
     cursor: pointer;
 }
 
@@ -54,7 +54,7 @@ h1.section-title {
     transition: 500ms;   
 }
 
-.back-btn {
+.snap-container a {
     display: inline-block;
     margin: 15px;
     position: absolute;
