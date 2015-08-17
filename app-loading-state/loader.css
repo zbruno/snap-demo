@@ -1,0 +1,37 @@
+#loading-svg {
+    width: 165px;
+    height: 175px;
+}
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #23b6d5;
+    z-index: 90;
+}
+.loader-overlay.on {
+    display: flex;
+}
+.loader-options {
+    z-index: 91;
+    position: relative;
+    text-align: center;
+    padding: 50px;
+}
+.loader-options a {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 15px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+}
+nav {
+    z-index: 100;
+    position: relative;
+}
